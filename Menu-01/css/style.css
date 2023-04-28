@@ -1,0 +1,139 @@
+﻿* {
+    box-sizing: border-box;
+    -webkit-transition: linear 0.2s;
+}
+body {
+    color: #f9f9f9;
+    background: #3d3d3d;
+}
+
+/* BUTTON TOOGLE */
+button {
+    cursor: pointer;
+    border: 0;
+}
+.burger,
+.menu {
+    position: fixed;
+}
+/* TEXT MENU */
+.menu-button{
+    background: transparent;
+    height: 100%;
+    width: 105px;
+    padding: 25px 0 25px 35px;
+    margin: 0;
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.menu-button:hover{
+    color: rgba(35, 85, 185, 0.8);
+}
+.burger {
+    background: transparent url("../menu-white.png") no-repeat left;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+.burger:hover{
+    background-image: url("../menu-black.png");
+}
+body.open .burger {
+    background-image: url("../close.svg");
+}
+/* ONCLIK MENU CSS */
+.menu {
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 400px;
+    height: 100%;
+    background: #000;
+    translate: -100% 0;
+    transition: translate 0.375s cubic-bezier(0.175, 0.885, 0.32, 1);
+    text-transform: uppercase;
+    
+}
+.menu nav {
+    opacity: 0;
+}
+body.open .menu {
+    opacity: 1;
+    visibility: visible;
+    translate: 0;
+    animation: menu-in 0.375s;
+}
+/* MENU NAV */
+.menu nav:hover a {
+    opacity: 0.15;
+}
+.menu nav a:hover {
+    opacity: 1;
+}
+.menu nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+/* MENU LINKS */
+.menu a {
+    position: relative;
+    color: #f9f9f9;
+    font-size: 25px;
+    font-family: "Montserrat";
+    padding: 15px 0;
+    width: 300px;
+    text-decoration: none;
+    transition: 0.7s;
+    letter-spacing: 3px;
+}
+
+/* MENU LINKS - HOVER ANIMATION */
+.menu a::before,
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    transition: 0.7s;
+}
+  
+.menu a::before {
+    opacity: 0;
+    background: rgb(35, 85, 185, 0.8);
+}
+
+.menu a::after {
+    transform: scaleX(0);
+    transform-origin: 0 50%; 
+    background: #ffffff;
+}
+  
+.menu a:hover::before {
+    opacity: 1;
+}
+  
+.menu a:hover::after {
+    transform: scaleX(1);
+}
+
+/* BODY OPEN */
+body.open .menu nav {
+    opacity: 1;
+}
